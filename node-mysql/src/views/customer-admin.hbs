@@ -1,0 +1,55 @@
+
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if customers}}
+            {{#each customers}}
+              <tr>
+                <td>{{listNumber @index}}</td>
+                <td>{{name}}</td>
+                <td>{{address}}</td>
+                <td>{{phone}}</td>
+                <td>
+                  <a href="/delete/{{id}}" class="btn btn-danger btn-block btn-sm">Delete</a>
+                  <a href="/edit/{{id}}" class="btn btn-info btn-block btn-sm">Edit</a>
+                </td>
+              </tr>
+            {{/each}}
+          {{/if}}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <form action="/add" method="post">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Name" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="address" placeholder="Address" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="phone" placeholder="Phone" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Save Customer
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
